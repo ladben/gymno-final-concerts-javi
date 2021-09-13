@@ -5,7 +5,7 @@ const getHelloWorld = async (name: string): Promise<HelloWorldResponse> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (name) {
-        resolve({ message: `hello${name}` });
+        resolve({ message: `hello ${name}` });
       } else {
         reject('Without a name I am not gonna say hello');
       }
