@@ -1,11 +1,13 @@
 export interface RegistrationResponse {
   id: number;
-  lastName: string;
-  firstName: string;
-  userName: string;
+  lastname: string;
+  firstname: string;
+  username: string;
 }
 
 export interface RegistrationRequest {
+  lastname: string;
+  firstname: string;
   username: string;
   password: string;
 }
