@@ -1,7 +1,7 @@
 import mysql from 'mysql';
 
 import config from '../config';
-import { DbResult } from '../models/data/db-result';
+import { DbResult } from '../models';
 
 export const pool = mysql.createPool({
   connectionLimit: 2,
