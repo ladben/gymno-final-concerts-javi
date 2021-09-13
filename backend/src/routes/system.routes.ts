@@ -1,5 +1,5 @@
 import express from 'express';
-import { getSystemStatus } from '../controllers/heartbeat';
+import { getSystemStatus } from '../controllers';
 
 const router = express.Router();
 
