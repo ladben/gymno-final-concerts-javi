@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import LandingPage from './components/landing-page/LandingPage';
@@ -16,12 +16,9 @@ const App:React.FC = () => {
             <Route exact path="/">
               <LandingPage />
             </Route>
-            <Route exact path="/login">
-              <div className="title">
-                <h1>
-                  Login page
-                </h1>
-              </div>
+            <Route>
+              <h1>Not implemented.</h1>
+              <Link to="/">Return to the landing page</Link>
             </Route>
           </Switch>
         </div>
