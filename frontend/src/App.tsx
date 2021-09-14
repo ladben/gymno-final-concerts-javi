@@ -1,12 +1,34 @@
-import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-import './App.css';
+import store from './store';
 
-function App() {
+import './App.scss';
+
+const App:React.FC = () => {
   return (
-    <div className="main">
-      <h1>Hello World!</h1>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <div className="main-wrapper">
+          <Switch>
+            <Route exact path="/">
+              <div className="title">
+                <h1>
+                  Hello!
+                </h1>
+              </div>
+            </Route>
+            <Route exact path="/login">
+              <div className="title">
+                <h1>
+                  Login page
+                </h1>
+              </div>
+            </Route>
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

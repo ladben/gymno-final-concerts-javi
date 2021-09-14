@@ -1,0 +1,13 @@
+@import './colors.scss';
+
+.main-wrapper {
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    color: $base-color;
+  }
+}
