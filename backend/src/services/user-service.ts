@@ -1,12 +1,12 @@
-import { db, pool } from '../data/connection';
+import { db } from '../data/connection';
 import {
   DbResult,
   RegistrationRequest,
   RegistrationResponse,
   ErrorHandling,
 } from '../models';
-import config from '../config';
-import jwt from 'jsonwebtoken';
+//import config from '../config';
+//import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { createErrorPromise } from '.';
 
