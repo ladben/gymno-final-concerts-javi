@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom';
+
 import LandingPageButton from './button/LandingPageButton';
+
 import './LandingPage.scss';
 
 interface LandingPageProps {}
@@ -14,8 +17,12 @@ const LandingPage: React.FC<LandingPageProps> = () => {
         </span>
       </h1>
       <div className="buttons">
-        <LandingPageButton text="Join us" className="filled"/>
-        <LandingPageButton text="Sign in" className="empty"/>
+        <Link to="/registration">
+          <LandingPageButton text="Join us" className="filled"/>
+        </Link>
+        <Link to="/login">
+          <LandingPageButton text="Sign in" className="empty"/>
+        </Link>
       </div>
     </div>
   );
