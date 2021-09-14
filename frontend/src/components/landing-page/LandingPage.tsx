@@ -1,3 +1,4 @@
+import LandingPageButton from './button/LandingPageButton';
 import './LandingPage.scss';
 
 interface LandingPageProps {}
@@ -13,8 +14,8 @@ const LandingPage: React.FC<LandingPageProps> = () => {
         </span>
       </h1>
       <div className="buttons">
-        <button className="filled">Join us</button>
-        <button className="empty">Sign in</button>
+        <LandingPageButton text="Join us" className="filled"/>
+        <LandingPageButton text="Sign in" className="empty"/>
       </div>
     </div>
   );
