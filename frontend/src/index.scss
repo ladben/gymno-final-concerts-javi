@@ -10,8 +10,9 @@
 body {
   width: 100vw;
   height: 100vh;
-  padding: 1rem 2rem;
-  background-color: $black;
+  padding: 5rem 2rem;
+  background: $base-color;
+  background: linear-gradient(150deg, $base-color 0%, $accent-dark 100%);
   display: flex;
   justify-content: center;
   align-items: center;
