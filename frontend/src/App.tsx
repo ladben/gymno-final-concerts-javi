@@ -2,6 +2,7 @@ import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import LandingPage from './components/landing-page/LandingPage';
+import Register from './components/register/Register';
 
 import store from './store';
 
@@ -15,6 +16,9 @@ const App:React.FC = () => {
           <Switch>
             <Route exact path="/">
               <LandingPage />
+            </Route>
+            <Route exact path="/register">
+              <Register />
             </Route>
             <Route>
               <h1>Not implemented.</h1>

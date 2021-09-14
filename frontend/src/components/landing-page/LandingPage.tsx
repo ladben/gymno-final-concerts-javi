@@ -17,7 +17,7 @@ const LandingPage: React.FC<LandingPageProps> = () => {
         </span>
       </h1>
       <div className="buttons">
-        <Link to="/registration">
+        <Link to="/register">
           <LandingPageButton text="Join us" className="filled"/>
         </Link>
         <Link to="/login">
