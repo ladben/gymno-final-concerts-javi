@@ -1,10 +1,10 @@
 import { RootStateOrAny } from 'react-redux';
 import { AnyAction, combineReducers } from 'redux';
 
-// import reducers
+import { userReducer } from './reducers';
 
 const appReducer = combineReducers({
-  // user: userReducer,
+  user: userReducer,
 });
 
 const rootReducer = (state: RootStateOrAny | undefined, action: AnyAction) => {
