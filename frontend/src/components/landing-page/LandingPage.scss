@@ -1,0 +1,59 @@
+@import '../../colors.scss';
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 85%;
+  height: 85%;
+  padding: 4rem 6rem;
+  border-radius: 1rem;
+  background: $base-color;
+  background: linear-gradient(135deg, $base-color 0%, $accent-dark 100%);
+  box-shadow: .2rem .2rem .4rem .2rem $accent-dark-shadow;
+  color: $black;
+  font-size: 1.75rem;
+
+  h1 {
+    text-align: center;
+    padding: 0 2em;
+
+    .accent {
+      color: $complementary-purple;
+      background: linear-gradient(-10deg, $complementary-blue, $complementary-purple);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .buttons {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 5em;
+
+    button {
+      outline: none;
+      border-radius: .25em;
+      border: none;
+      padding: .5em 1em;
+      font-size: 2rem;
+      font-weight: bold;
+
+    }
+
+    .filled {
+      background: linear-gradient(170deg, $complementary-purple, $complementary-blue);
+      color: $white;
+    }
+
+    .empty {
+      background: transparent;
+      border: .125em solid $complementary-blue;
+      padding: .375em .875em;
+    }
+  }
+
+}

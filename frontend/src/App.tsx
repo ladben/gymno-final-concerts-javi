@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
+import LandingPage from './components/landing-page/LandingPage';
+
 import store from './store';
 
 import './App.scss';
@@ -12,11 +14,7 @@ const App:React.FC = () => {
         <div className="main-wrapper">
           <Switch>
             <Route exact path="/">
-              <div className="title">
-                <h1>
-                  Hello!
-                </h1>
-              </div>
+              <LandingPage />
             </Route>
             <Route exact path="/login">
               <div className="title">
