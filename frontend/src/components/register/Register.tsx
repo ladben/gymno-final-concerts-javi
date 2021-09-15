@@ -4,6 +4,8 @@ import { FloatingLabel } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 
+import config from '../../config';
+
 import './Register.scss';
 import { ChangeEvent, SyntheticEvent, useState } from "react";
 
@@ -74,7 +76,21 @@ const Register: React.FC<RegisterProps> = () => {
     event.stopPropagation();
     form.classList.add('was-validated');
     if (form.checkValidity()) {
-      console.log('calling backend');
+      const body = {
+        lastname: formValues.lastname,
+        firstname: formValues.firstname,
+        username: formValues.username,
+        password: formValues.password
+      }
+      fetch(`${config.url}/api/registration`, {
+        method: 'POST',
+        body: JSON.stringify(body),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success: ', data);
+      })
+      .catch(error => console.log(error));
     }
   }
 
