@@ -18,7 +18,6 @@ const Register: React.FC<RegisterProps> = () => {
   }
 
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [passwordErrorMessage, setPasswordErrorMessage] = useState('This field is required!');
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     switch (event.target.id) {
@@ -73,10 +72,10 @@ const Register: React.FC<RegisterProps> = () => {
     const form = event.target as HTMLFormElement;
     event.preventDefault();
     event.stopPropagation();
-    if (formValues.password.length < 6) {
-      setPasswordErrorMessage('Password needs to be at least 6 characters long!');
-    }
     form.classList.add('was-validated');
+    if (form.checkValidity()) {
+      console.log('calling backend');
+    }
   }
 
   return (
@@ -115,9 +114,9 @@ const Register: React.FC<RegisterProps> = () => {
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <FloatingLabel controlId="floatingPassword" label="Password">
-              <Form.Control required type="password" placeholder="Password" value={formValues.password} onChange={handleInputChange} />
+              <Form.Control pattern=".{6,}" required type="password" placeholder="Password" value={formValues.password} onChange={handleInputChange} />
               <div className="invalid-tooltip">
-                {passwordErrorMessage}
+                Password needs to be at least 6 characters long!
               </div>
             </FloatingLabel>
             <Form.Text className="text-muted">
