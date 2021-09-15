@@ -84,11 +84,14 @@ const Register: React.FC<RegisterProps> = () => {
       }
       fetch(`${config.url}/api/registration`, {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(body),
       })
       .then(response => response.json())
       .then(data => {
-        console.log('Success: ', data);
+        console.log('Server answer: ', data);
       })
       .catch(error => console.log(error));
     }

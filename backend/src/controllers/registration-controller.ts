@@ -14,9 +14,9 @@ export const registrationController = {
       next(new HttpException(500, error.message));
     });
 
-    if ((data as ErrorHandling).message === 'Username is already taken.') {
+    if ((data as ErrorHandling)?.message === 'Username is already taken.') {
       res.status(403).json(data);
-    } else if ((data as ErrorHandling).status === 'error') {
+    } else if ((data as ErrorHandling)?.status === 'error') {
       res.status(400).json(data);
     } else {
       res.status(201).json(data);

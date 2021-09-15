@@ -52,12 +52,14 @@ const register = async (
       });
 
       // posting data to database
-      db.query(
-        `INSERT INTO users (lastname, firstname, username, password) VALUES (?, ?, ?, ?)`,
-        [lastname, firstname, username, hash]
-      ).catch(error => {
-        throw new Error(`database error: ${error.message}`);
-      });
+      await db
+        .query(
+          `INSERT INTO users (lastname, firstname, username, password) VALUES (?, ?, ?, ?)`,
+          [lastname, firstname, username, hash]
+        )
+        .catch(error => {
+          throw new Error(`database error: ${error.message}`);
+        });
 
       // query inserted data
       const insertedData: DbResult = await db
