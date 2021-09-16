@@ -4,9 +4,12 @@ import {
   RegistrationRequest,
   RegistrationResponse,
   ErrorHandling,
+  LoginRequest,
+  LoginResponse,
+  User,
 } from '../models';
-//import config from '../config';
-//import jwt from 'jsonwebtoken';
+import config from '../config';
+import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { createErrorPromise } from '.';
 
@@ -31,7 +34,7 @@ const register = async (
     const data: DbResult = await db
       .query(`SELECT * FROM users u WHERE u.username = ?`, [username])
       .catch(error => {
-        throw new Error(`database error: ${error.message}`);
+        throw new Error(`Database error: ${error.message}`);
       });
 
     if (data.results.length > 0) {
@@ -84,6 +87,55 @@ const register = async (
   }
 };
 
+const login = async (
+  request: LoginRequest
+): Promise<LoginResponse | ErrorHandling> => {
+  const { username, password } = request;
+
+  if (!username && !password) {
+    return createErrorPromise('Username and password are required.');
+  } else if (!username && password) {
+    return createErrorPromise('Username is required.');
+  } else if (username && !password) {
+    return createErrorPromise('Password is required.');
+  } else {
+    const data: DbResult = await db
+      .query(`SELECT * FROM users WHERE username = ?`, [username])
+      .catch(error => {
+        throw new Error(`Database error: ${error.message}`);
+      });
+
+    const result: User = data.results[0] as unknown as User;
+
+    if (!result) {
+      return createErrorPromise('Username or password is incorrect.');
+    } else {
+      return new Promise<LoginResponse>((resolve, reject) => {
+        bcrypt.compare(password, result.password, (err, bcryptResult) => {
+          if (err) {
+            reject(err.message);
+          } else if (!bcryptResult) {
+            resolve({
+              status: 'error',
+              message: 'Username or password is incorrect.',
+            });
+          } else {
+            const user: User = result;
+            const secret: jwt.Secret = config.accessTokenSecret as jwt.Secret;
+            const accessToken: string = jwt.sign(user, secret);
+            resolve({
+              status: 'ok',
+              authorization: `Bearer ${accessToken}`,
+              username: username,
+            });
+          }
+        });
+      });
+    }
+  }
+};
+
 export const userService = {
   register,
+  login,
 };
