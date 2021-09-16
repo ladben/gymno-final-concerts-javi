@@ -22,6 +22,10 @@ const register = async (
     return createErrorPromise('Username is required.');
   } else if (!password) {
     return createErrorPromise('Password is required.');
+  } else if (password.length < 6) {
+    return createErrorPromise(
+      'Password needs to be at least 6 characters long.'
+    );
   } else {
     // checking if username is still available
     const data: DbResult = await db
