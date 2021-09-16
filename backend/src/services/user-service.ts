@@ -120,7 +120,9 @@ const login = async (
               message: 'Username or password is incorrect.',
             });
           } else {
-            const user: User = result;
+            const user: User = {
+              ...result,
+            };
             const secret: jwt.Secret = config.accessTokenSecret as jwt.Secret;
             const accessToken: string = jwt.sign(user, secret);
             resolve({
