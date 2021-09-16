@@ -1,5 +1,8 @@
 @import '../../../colors.scss';
 
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1024px;
+
 .welcome {
 
   button {
@@ -7,7 +10,7 @@
     border-radius: .25em;
     border: none;
     padding: .5em 1em;
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: bold;
   }
 
@@ -38,4 +41,16 @@
       color: $white;
     }
   }
+
+  @media (min-width: $breakpoint-tablet) {
+    button {
+      font-size: 2rem;
+    }
+  }
+  @media (min-width: $breakpoint-laptop) {
+    button {
+      font-size: 2.5rem;
+    }
+  }
+
 }

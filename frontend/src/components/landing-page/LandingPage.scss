@@ -1,5 +1,8 @@
 @import '../../colors.scss';
 
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1024px;
+
 .welcome {
   display: flex;
   justify-content: center;
@@ -8,12 +11,11 @@
   height: 85%;
   border-radius: 1rem;
   color: $black;
-  font-size: 1.75rem;
 
   h1 {
     text-align: center;
-    padding: 0 2em;
     font-weight: 700;
+    font-size: 2rem;
 
     .accent {
       color: $complementary-purple;
@@ -29,7 +31,27 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 0 10em;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    h1 {
+      font-size: 2.3rem;
+    }
+
+    .buttons {
+      padding: 0 5em;
+    }
+  }
+
+  @media (min-width: $breakpoint-laptop) {
+    h1 {
+      font-size: 3rem;
+      padding: 0 5em;
+    }
+
+    .buttons {
+      padding: 0 10em;
+    }
   }
 
 }
