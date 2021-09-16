@@ -6,3 +6,4 @@ export * from './dto/login';
 
 //data
 export * from './data/db-result';
+export * from './data/user';
