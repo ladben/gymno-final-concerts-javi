@@ -19,7 +19,7 @@ $primary: $complementary-blue;
 body {
   width: 100vw;
   height: 100vh;
-  padding: 5rem 2rem;
+  padding: 2rem 2rem;
   background: $base-color;
   background: linear-gradient(150deg, $base-color 0%, $accent-dark 100%);
   display: flex;
@@ -32,55 +32,70 @@ body {
     display: flex;
     height: 100%;
     width: 100%;
-  }
 
-  .form {
-    height: 85%;
-    width: 35%;
-    min-height: 550px;
-    min-width: 300px;
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: .25rem;
-    padding: 1.5rem;
-  
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      z-index: -1;
-      background: linear-gradient(150deg, $complementary-purple, $complementary-blue);
-      border-radius: .25rem;
-      box-shadow: 5px 5px 5px 0px $complementary-blue-shadow;
-    }
-    &::after {
-      content: '';
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      bottom: 5px;
-      right: 5px;
-      z-index: -1;
-      background: linear-gradient(150deg, $base-color 0%, $accent-dark 100%);
-      border-radius: .25em;
-    }
-  
-    .form-buttons {
+    .main-wrapper {
+      min-height: 100%;
+      min-width: 100%;
       display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 2rem;
   
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      text-align: center;
+      .form {
+        width: 35%;
+        min-width: 300px;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: .25rem;
+        padding: 2rem;
+      
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          z-index: -1;
+          background: linear-gradient(150deg, $complementary-purple, $complementary-blue);
+          border-radius: .25rem;
+          box-shadow: 5px 5px 5px 0px $complementary-blue-shadow;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          bottom: 5px;
+          right: 5px;
+          z-index: -1;
+          background: linear-gradient(150deg, $base-color 0%, $accent-dark 100%);
+          border-radius: .25em;
+        }
+      
+        .form-buttons {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+        }
+    
+        .texts {
+          margin-bottom: 1.5em;
+    
+          h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-align: center;
+          }
+      
+          p {
+            text-align: center;
+          }
+        }
+      }
     }
   }
 }

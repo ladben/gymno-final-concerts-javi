@@ -164,10 +164,12 @@ const Register: React.FC<RegisterProps> = () => {
 
   return (
     <div className="form">
-      <h1>
-        Register for our site
-      </h1>
-      <p className="message">{success}</p>
+      <div className="texts">
+        <h1>
+          Register for our site
+        </h1>
+        <p className="message">{success}</p>
+      </div>
       <Container>
         <Form className="needs-validation" onSubmit={handleSubmit} noValidate>
           <Form.Group className="mb-3" controlId="formBasicFistname">
