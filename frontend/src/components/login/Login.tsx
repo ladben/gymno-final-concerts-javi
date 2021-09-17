@@ -127,6 +127,7 @@ const Login: React.FC<LoginProps> = () => {
           }
         } else {
           localStorage.setItem('authorization', data.authorization);
+          window.dispatchEvent(new Event('storage'));
           history.push('/');
         }
       })

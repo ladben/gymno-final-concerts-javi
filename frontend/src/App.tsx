@@ -10,6 +10,7 @@ import store from './store';
 import './App.scss';
 
 const App:React.FC = () => {
+
   return (
     <Provider store={store}>
       <BrowserRouter>
