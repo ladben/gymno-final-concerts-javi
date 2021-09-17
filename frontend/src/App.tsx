@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 
 import LandingPage from './components/landing-page/LandingPage';
 import Register from './components/register/Register';
+import Login from './components/login/Login';
 
 import store from './store';
 
@@ -19,6 +20,9 @@ const App:React.FC = () => {
             </Route>
             <Route exact path="/register">
               <Register />
+            </Route>
+            <Route exact path="/login">
+              <Login />
             </Route>
             <Route>
               <h1>Not implemented.</h1>
