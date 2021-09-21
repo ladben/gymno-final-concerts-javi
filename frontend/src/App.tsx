@@ -4,10 +4,12 @@ import { Provider } from 'react-redux';
 import LandingPage from './components/landing-page/LandingPage';
 import Register from './components/register/Register';
 import Login from './components/login/Login';
+import Gate from './components/gate/Gate';
 
 import store from './store';
 
 import './App.scss';
+import Main from './components/main/Main';
 
 const App:React.FC = () => {
 
@@ -17,7 +19,13 @@ const App:React.FC = () => {
         <div className="main-wrapper">
           <Switch>
             <Route exact path="/">
+              <Gate />
+            </Route>
+            <Route exact path="/landing">
               <LandingPage />
+            </Route>
+            <Route exact path="/welcome">
+              <Main />
             </Route>
             <Route exact path="/register">
               <Register />

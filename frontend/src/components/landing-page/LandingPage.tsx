@@ -7,11 +7,9 @@ import './LandingPage.scss';
 interface LandingPageProps {}
  
 const LandingPage: React.FC<LandingPageProps> = () => {
-  const localStorage: Storage = window.localStorage;
 
   return (
     <div className="welcome">
-      { localStorage.getItem('authorization') && <div><h1>Authorized</h1></div> }
       <h1>
         <span className="accent">
           Concert Pilgrim
