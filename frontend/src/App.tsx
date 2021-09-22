@@ -5,11 +5,11 @@ import LandingPage from './components/landing-page/LandingPage';
 import Register from './components/register/Register';
 import Login from './components/login/Login';
 import Gate from './components/gate/Gate';
+import Main from './components/main/Main';
 
 import store from './store';
 
 import './App.scss';
-import Main from './components/main/Main';
 
 const App:React.FC = () => {
 

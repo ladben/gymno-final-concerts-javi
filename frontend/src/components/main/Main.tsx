@@ -1,5 +1,6 @@
 import { SyntheticEvent } from "react";
 import { Link } from "react-router-dom";
+import HelloUser from "../common/hello-user/HelloUser";
 
 interface MainProps {}
  
@@ -11,11 +12,14 @@ const Main: React.FC<MainProps> = () => {
   }
 
   return (
-    <button onClick={handleLogout}>
-      <Link to="/">
-        LogOut
-      </Link>
-    </button>
+    <div>
+      <HelloUser firstname="Bence" lastname="Ladányi" />
+      <button onClick={handleLogout}>
+        <Link to="/">
+          LogOut
+        </Link>
+      </button>
+    </div>
   );
 }
  
