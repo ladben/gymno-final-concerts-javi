@@ -1,11 +1,14 @@
 import { SyntheticEvent } from "react";
 import { Link } from "react-router-dom";
-import HelloUser from "../common/hello-user/HelloUser";
+import LoggedInAs from "../common/hello-user/LoggedInAs";
 
 interface MainProps {}
  
 const Main: React.FC<MainProps> = () => {
   const localStorage: Storage = window.localStorage;
+  // CREATE backend endpoint for getting payload from token
+  const firstname = 'Bence';
+  const lastname = 'Ladányi';
 
   const handleLogout = (event: SyntheticEvent) => {
     localStorage.removeItem('authorization');
@@ -13,7 +16,7 @@ const Main: React.FC<MainProps> = () => {
 
   return (
     <div>
-      <HelloUser firstname="Bence" lastname="Ladányi" />
+      <LoggedInAs firstname={firstname} lastname={lastname} />
       <button onClick={handleLogout}>
         <Link to="/">
           LogOut
